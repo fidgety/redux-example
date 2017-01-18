@@ -3,12 +3,12 @@ import { valueAdded } from '../constants';
 export default (state, action) => {
     if (!state) {
         return {
-            values: []
+            values: ['a']
         };
     }
 
     if (action.type === valueAdded) {
-        state.values = state.values.concat([action.newValue]);
+        state.values = state.values.concat([action.value]);
     }
 
     return state;

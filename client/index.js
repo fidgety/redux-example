@@ -1,3 +1,5 @@
 import store from './store';
 
-document.write('hi');
+import page1 from './pages/page1';
+
+page1(store);

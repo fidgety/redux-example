@@ -52,7 +52,7 @@ const config = {
 };
 
 
-if (env === 'dev') {
+if (env !== 'prod') {
     new WebpackDevServer(webpack(config), {
         contentBase: './public',
         historyApiFallback: true,

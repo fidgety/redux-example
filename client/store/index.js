@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import reducerA from '../reducers/reducerA';
+import list from '../reducers/list';
 import createLogger from 'redux-logger';
 
 const reducers = combineReducers({
-    reducerA
+    list
 });
 
 const createStoreWithMiddleware = applyMiddleware(

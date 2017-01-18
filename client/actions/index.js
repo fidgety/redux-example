@@ -1,6 +1,6 @@
-import { valueAdded } from './constants';
+import { valueAdded } from '../constants';
 
-export const addValue = value => {
+export const add = value => {
     return {
         type: valueAdded,
         value

@@ -1,1 +1,3 @@
-console.log('hello');
+import store from './store';
+
+document.write('hi');

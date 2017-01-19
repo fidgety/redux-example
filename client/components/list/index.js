@@ -1,5 +1,5 @@
 const list = store => {
-    const render = items => {
+    const render = () => {
         const listItems = store.getState().list.values;
 
         const listLis = listItems.map(item => `<li>${item}</li>`).join('');

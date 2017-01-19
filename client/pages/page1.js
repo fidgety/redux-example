@@ -1,4 +1,4 @@
-import list from '../components/list';
+import list from '../components/list/index';
 import add from '../components/add';
 
 const page1 = store => {

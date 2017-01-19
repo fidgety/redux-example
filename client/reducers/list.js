@@ -8,7 +8,9 @@ export default (state, action) => {
     }
 
     if (action.type === valueAdded) {
-        state.values = state.values.concat([action.value]);
+        return {
+            values: state.values.concat([action.value])
+        };
     }
 
     return state;

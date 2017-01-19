@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const env = process.env.WEBPACK_ENV;
 
 var host = '0.0.0.0';
-var port = '9002';
+var port = '9000';
 
 const config = {
     entry: './client/index.js',

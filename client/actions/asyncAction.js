@@ -9,8 +9,10 @@ const asyncResponse = value => {
 };
 
 const upperCase = value => dispatch => {
+    dispatch(tryToAdd(uppercased));
     asyncResponse(value)
-        .then(uppercased => dispatch(add(uppercased)));
+        .then(uppercased => dispatch(add(uppercased)))
+		.catch(fail => dispatch(failAdd(fail)));
 };
 
 export const uppercase = value => {

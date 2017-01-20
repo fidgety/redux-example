@@ -4,12 +4,10 @@ import React from 'react';
 
 module.exports = React.createClass({
     render() {
-
-	        console.log(this.props);
         return (
-            <form className="login" onSubmit={(e) => { e.preventDefault(); this.props.onSubmit(); }}>
-                <input type="text" name="username"/>
-                <input type="password" name="password"/>
+            <form className="login" onSubmit={(e) => { e.preventDefault(); this.props.onSubmit(this.username.value, this.password.value); }}>
+                <input type="text" name="username" ref={input => this.username = input}/>
+                <input type="password" name="password" ref={input => this.password = input}/>
                 <input type="submit"/>
             </form>
         );

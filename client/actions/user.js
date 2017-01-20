@@ -1,10 +1,14 @@
+import { browserHistory } from 'react-router';
+
 export const loginInProgress = () => ({
     type: 'login-progressing'
 });
 
 export const loginSuccess = loginResponse => {
 	// this is really bad
-    window.localstorage.setItem('token', loginResponse.token.token);
+    localStorage.setItem('token', loginResponse.token.token);
+
+    browserHistory.push('/dashboard');
 
     return Object.assign({
         type: 'login-success'

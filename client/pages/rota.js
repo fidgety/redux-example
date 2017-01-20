@@ -1,22 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import login from '../actions/user';
-import Login from '../components/login';
+import { loadRota } from '../actions/rota';
 
 // require('./style.scss');
 require('react-dom');
 
 const selectState = (state) => {
     return {
+		...state.rota
     };
 };
 
 export default connect(selectState)(React.createClass({
+    componentWillMount() {
+        this.props.dispatch(loadRota(this.props.params.id));
+    },
     render() {
-        return <Login
-            onSubmit={(username, password) => {
-                this.props.dispatch(login(username, password));
-            }}
-        />;
+        return <div>{this.props.name}</div>;
     }
 }));

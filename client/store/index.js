@@ -1,10 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import list from '../reducers/list';
+import rotas from '../reducers/rotas';
+import rota from '../reducers/rota';
 import createLogger from 'redux-logger';
+import { routerReducer } from 'react-router-redux';
 
 const reducers = combineReducers({
-    list
+    rotas,
+    rota,
+    routing: routerReducer
 });
 
 const createStoreWithMiddleware = applyMiddleware(

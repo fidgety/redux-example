@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadRota } from '../actions/rota';
-
+import ShiftList from '../components/shiftList';
 // require('./style.scss');
 require('react-dom');
 
 const selectState = (state) => {
     return {
-		...state.rota
+        shifts: state.rota.shifts
     };
 };
 
@@ -16,6 +16,11 @@ export default connect(selectState)(React.createClass({
         this.props.dispatch(loadRota(this.props.params.id));
     },
     render() {
-        return <div>{this.props.name}</div>;
+        return <div>
+            <ShiftList
+                shifts={this.props.shifts}
+                addShift={() => alert('delete')}
+            />
+        </div>;
     }
 }));

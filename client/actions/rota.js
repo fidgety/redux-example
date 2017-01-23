@@ -1,13 +1,13 @@
-export const getRotaInProgress = () => ({
+const getRotaInProgress = () => ({
     type: 'get-rota-progressing'
 });
 
-export const getRotaSuccess = (rota) => ({
+const getRotaSuccess = (rota) => ({
     type: 'get-rota-success',
     rota
 });
 
-export const getRotaFailure = (err) => ({
+const getRotaFailure = (err) => ({
     type: 'get-rota-faliure',
     err
 });

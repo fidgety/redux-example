@@ -21,6 +21,7 @@
             2,
             "never"
         ],
+        "no-underscore-dange": 0,
         "new-cap": 0,
         "id-length": 0,
         "vars-on-top": 0,

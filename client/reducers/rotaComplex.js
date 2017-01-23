@@ -13,9 +13,20 @@ const mapShift = shift => ({
     end: moment(shift.end)
 });
 
+const buildDays = (startDate, duration) => {
+    var days = [];
+    for (var i = 0; i < duration; i++) {
+        days.push({
+            date: moment(startDate).add(i, 'days')
+        });
+    }
+    return days;
+};
+
 export default function(state, action) {
     if (!state) {
         return {
+            days: [],
             shifts: [],
             name: '',
             start: undefined,
@@ -26,6 +37,7 @@ export default function(state, action) {
     if (action.type === 'get-rota-success') {
         const start = moment(action.rota.startDate);
         return {
+            days: buildDays(start, action.rota.duration),
             shifts: action.rota._embedded['http://api.brighthr.com/rels/shift'].map(mapShift),
             name: action.rota.name,
             start,

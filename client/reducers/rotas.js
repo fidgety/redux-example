@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default function(state, action) {
     if (!state) {
         return {
@@ -8,9 +10,10 @@ export default function(state, action) {
 
     if (action.type === 'get-rotas-success') {
         const allRotas = action.rotas._embedded.collection.map(rota => {
-            return Object.assign({
-                id: rota._links.item.href.match(/\d+/g)[0]
-            }, rota);
+            return Object.assign({}, rota, {
+                id: rota._links.item.href.match(/\d+/g)[0],
+                startDate: moment(rota.startDate)
+            });
         });
 
         return {

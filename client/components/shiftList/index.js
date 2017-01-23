@@ -2,7 +2,7 @@ import React from 'react';
 import Shift from './shift';
 
 export default function(props) {
-    if (!props.shifts) {
+    if (!props.shifts.length) {
         return <div>loading....</div>;
     }
 

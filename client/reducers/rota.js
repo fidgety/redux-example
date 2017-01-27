@@ -3,7 +3,7 @@ import moment from 'moment';
 const mapParticipant = participant => ({
     id: participant.id,
     name: participant.name,
-    icon: participant._links.icon.href
+    icon: `${participant._links.icon.href}?height=25&width=25&mode=crop`
 });
 
 const mapShift = shift => ({

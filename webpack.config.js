@@ -35,20 +35,11 @@ const config = {
         {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        }, {
-            test: /\.json$/,
-            loader: 'json-loader'
         }]
     },
     plugins: [
         new ExtractTextPlugin('./styles.css')
-    ],
-    node: {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty',
-        dns: 'empty'
-    }
+    ]
 };
 
 

@@ -14,8 +14,8 @@ const mapShift = shift => ({
 });
 
 const buildDays = (startDate, duration) => {
-    var days = [];
-    for (var i = 0; i < duration; i++) {
+    let days = [];
+    for (let i = 0; i < duration; i += 1) {
         days.push({
             date: moment(startDate).add(i, 'days')
         });
@@ -23,10 +23,21 @@ const buildDays = (startDate, duration) => {
     return days;
 };
 
+const buildWeeks = (startDate, amountOfWeeks) => {
+    let weeks = [];
+    for (let i = 0; i < amountOfWeeks; i += 1) {
+        weeks.push({
+            start: moment(startDate).add(i, 'weeks')
+        });
+    }
+    return weeks;
+};
+
 export default function(state, action) {
     if (!state) {
         return {
             days: [],
+            weeks: [],
             shifts: [],
             name: '',
             start: undefined,
@@ -38,6 +49,7 @@ export default function(state, action) {
         const start = moment(action.rota.startDate);
         return {
             days: buildDays(start, action.rota.duration),
+            weeks: buildWeeks(start, (action.rota.duration / 7)),
             shifts: action.rota._embedded['http://api.brighthr.com/rels/shift'].map(mapShift),
             name: action.rota.name,
             start,
